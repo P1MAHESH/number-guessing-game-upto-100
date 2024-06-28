@@ -1,0 +1,66 @@
+# this is the basic number guessing game
+import random
+number_guessing_game="Welcome to number guessing game"
+print(f"{number_guessing_game} guess a number between 1 to 100 [including 100] only ")
+numbers=[]
+for i in range(1,100+1):
+    numbers.append(i)
+level=input("Enter EASY or HARD level for easy u will have 10 attempts for hard u will have 5 attempts").lower()
+computer_number=random.choice(numbers)
+print(computer_number)
+def user_easy():
+    attempts=[]
+    while level=='easy':
+        for i in range(1,11):
+            user_guess=int(input("Enter a number"))
+            if user_guess<=100:
+                if computer_number==user_guess:
+                    print(f"{user_guess} is correct")
+                    break
+                elif computer_number>user_guess:
+                    attempts.append(user_guess)
+                    print(f"your number less than computer number and u have only {10-len(attempts)} attempts now")
+                elif computer_number<user_guess:
+                    attempts.append(user_guess)
+                    print(f"Your number is greater than computer number and u have only {10-len(attempts)} attempts now")
+                else:
+                    print('hi')
+            else:
+                print(f"u entered '{users}' but u entered '{user_guess}' which is greater than 100 so u cannot play the game")
+                break
+        break
+while level=='easy':
+    users=input("Is your number that want to enter is under 100 or not \n types YES if number u want to enter is under 100 \n type NO number greater than 100").lower()
+    if users=='yes':
+        user_easy()
+    else:
+        print(f"u cannot play the game until your number is less than 100 ")
+    break
+def user_hard():
+    attempt=[]
+    while level=='hard':
+        for i in range(1,6):
+            user_guess=int(input("Enter a number"))
+            if user_guess<=100:
+                if computer_number==user_guess:
+                    print(f"{user_guess} is correct")
+                    break
+                elif computer_number>user_guess:
+                    attempt.append(user_guess)
+                    print(f"your number less than computer number and u have only {5-len(attempt)} attempts now")
+                elif computer_number<user_guess:
+                    attempt.append(user_guess)
+                    print(f"Your number is greater than computer number and u have only {5-len(attempt)} attempts now")
+                else:
+                    print('hi')
+            else:
+                print(f"u entered '{userers}' but u entered '{user_guess}' which is greater than 100 so u cannot play the game")
+                break
+        break
+while level=='hard':
+    userers=input("Is your number that want to enter is under 100 or not \n types YES if number u want to enter is under 100 \n type NO number greater than 100").lower()
+    if userers=='yes':
+        user_hard()
+    else:
+        print(f"u cannot play the game until your number is less than 100 ")
+    break
